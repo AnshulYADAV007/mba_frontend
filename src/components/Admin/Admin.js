@@ -14,7 +14,8 @@ import { CWidgetStatsC } from '@coreui/react';
 import { CIcon } from '@coreui/icons-react';
 import { cilChartPie } from '@coreui/icons';
 
-import { ExportCsv, ExportPdf } from '@material-table/exporters';
+import ExportPdf from '@material-table/exporters/pdf';
+import ExportCsv from '@material-table/exporters/csv';
 
 
 const Admin = () => {
@@ -347,7 +348,7 @@ const Admin = () => {
                                 <span class="input-group-text"><i className="b bi-pencil"></i></span>
                                 <input type="text" name="name" value={tempTheaterDetail.name} placeholder="Theater Name" onChange={updateTempTheaterDetail} required className="form-control" />
                             </div>
-                            
+
                             <select name="city" className="form-select form-select-sm" value={tempTheaterDetail.city} onChange={updateTempTheaterDetail} required>
                                 {
                                     cities.map((city) => (
@@ -356,14 +357,14 @@ const Admin = () => {
                                 }
                             </select>
                             <div class="input-group my-2">
-                            <span class="input-group-text"><i className="bi bi-pencil"></i></span>
-                            <textarea type="text" name="description" value={tempTheaterDetail.description} placeholder="Description" onChange={updateTempTheaterDetail} required className="form-control" />
+                                <span class="input-group-text"><i className="bi bi-pencil"></i></span>
+                                <textarea type="text" name="description" value={tempTheaterDetail.description} placeholder="Description" onChange={updateTempTheaterDetail} required className="form-control" />
                             </div>
                             <div class="input-group mb-3">
-                            <span class="input-group-text"><i className="bi bi-pencil"></i></span>
-                            <input type="text" name="pinCode" placeholder="PinCode" value={tempTheaterDetail.pinCode} onChange={updateTempTheaterDetail} required className="form-control" />
+                                <span class="input-group-text"><i className="bi bi-pencil"></i></span>
+                                <input type="text" name="pinCode" placeholder="PinCode" value={tempTheaterDetail.pinCode} onChange={updateTempTheaterDetail} required className="form-control" />
                             </div>
-                           
+
                             <div className="input-group justify-content-center">
                                 <div className="m-1">
                                     <Button variant="danger" onClick={clearState}>Cancel</Button>
@@ -520,69 +521,69 @@ const Admin = () => {
                     </Modal.Header>
                     <Modal.Body>
                         <form onSubmit={updateMovieModal ? updateMovie : newMovie}>
-                        <div class="input-group my-2">
-                            <span class="input-group-text"><i className="bi bi-pencil"></i></span>
-                            <input type="text" name="name" value={tempMovieDetail.name} placeholder="Movie Name" onChange={updateTempMovieDetail} required className="form-control"/>
-                             </div>
-                             <div class="input-group my-2">
-                            <span class="input-group-text"><i className="bi bi-pencil"></i></span> 
-                            <textarea type="text" name="description" className="form-control" value={tempMovieDetail.description} placeholder="Description" onChange={updateTempMovieDetail} required />
+                            <div class="input-group my-2">
+                                <span class="input-group-text"><i className="bi bi-pencil"></i></span>
+                                <input type="text" name="name" value={tempMovieDetail.name} placeholder="Movie Name" onChange={updateTempMovieDetail} required className="form-control" />
+                            </div>
+                            <div class="input-group my-2">
+                                <span class="input-group-text"><i className="bi bi-pencil"></i></span>
+                                <textarea type="text" name="description" className="form-control" value={tempMovieDetail.description} placeholder="Description" onChange={updateTempMovieDetail} required />
                             </div>
 
                             <div className="d-flex ">
-                            <div class="input-group me-1">
-                            <span class="input-group-text"><i className="b bi-pencil"></i></span>
-                            <input type="text" name="director" value={tempMovieDetail.director} placeholder="director" onChange={updateTempMovieDetail} required className="form-control" />
-                             </div>
+                                <div class="input-group me-1">
+                                    <span class="input-group-text"><i className="b bi-pencil"></i></span>
+                                    <input type="text" name="director" value={tempMovieDetail.director} placeholder="director" onChange={updateTempMovieDetail} required className="form-control" />
+                                </div>
 
-                             <div class="input-group ms-1">
-                            <span class="input-group-text"><i className="b bi-pencil"></i></span> 
-                            <input type="text" name="language" value={tempMovieDetail.language} placeholder="language" onChange={updateTempMovieDetail} required className="form-control" />
-                            </div>
-                           
+                                <div class="input-group ms-1">
+                                    <span class="input-group-text"><i className="b bi-pencil"></i></span>
+                                    <input type="text" name="language" value={tempMovieDetail.language} placeholder="language" onChange={updateTempMovieDetail} required className="form-control" />
+                                </div>
+
 
                             </div>
 
                             <div className="d-flex my-2">
-                            <div class="input-group me-1 ">
-                            <span class="input-group-text"><i className="b bi-link-45deg"></i></span> 
-                            <input type="text" name="posterUrl" value={tempMovieDetail.posterUrl} placeholder="posterUrl" onChange={updateTempMovieDetail} required className="form-control" />
+                                <div class="input-group me-1 ">
+                                    <span class="input-group-text"><i className="b bi-link-45deg"></i></span>
+                                    <input type="text" name="posterUrl" value={tempMovieDetail.posterUrl} placeholder="posterUrl" onChange={updateTempMovieDetail} required className="form-control" />
+                                </div>
+
+                                <div class="input-group ms-1 ">
+                                    <span class="input-group-text"><i className="b bi-link-45deg"></i></span>
+                                    <input type="text" name="trailerUrl" value={tempMovieDetail.trailerUrl} placeholder="trailerUrl" onChange={updateTempMovieDetail} required className="form-control" /></div>
+
+
                             </div>
 
-                            <div class="input-group ms-1 ">
-                            <span class="input-group-text"><i className="b bi-link-45deg"></i></span> 
-                            <input type="text" name="trailerUrl" value={tempMovieDetail.trailerUrl} placeholder="trailerUrl" onChange={updateTempMovieDetail} required className="form-control" /></div>
-                           
 
-                            </div>
 
-                           
 
-                           
 
                             <div class="input-group my-2">
-                            <span class="input-group-text"><i className="b bi-pencil"></i></span> 
-                            <select name="releaseStatus" value={tempMovieDetail.releaseStatus} onChange={updateTempMovieDetail} required className="form-select form-select-sm">
-                                <option value="RELEASED" selected>RELEASED </option>
-                                <option value="UNRELEASED">UNRELEASED</option>
-                                <option value="BLOCKED">BLOCKED</option>
-                            </select>
+                                <span class="input-group-text"><i className="b bi-pencil"></i></span>
+                                <select name="releaseStatus" value={tempMovieDetail.releaseStatus} onChange={updateTempMovieDetail} required className="form-select form-select-sm">
+                                    <option value="RELEASED" selected>RELEASED </option>
+                                    <option value="UNRELEASED">UNRELEASED</option>
+                                    <option value="BLOCKED">BLOCKED</option>
+                                </select>
                             </div>
 
                             <div class="input-group my-2">
-                            <span class="input-group-text"><i className="bi bi-pencil"></i></span> 
-                            <input type="text" name="releaseDate" value={tempMovieDetail.releaseDate} placeholder="releaseDate" onChange={updateTempMovieDetail} required className="form-control" />
+                                <span class="input-group-text"><i className="bi bi-pencil"></i></span>
+                                <input type="text" name="releaseDate" value={tempMovieDetail.releaseDate} placeholder="releaseDate" onChange={updateTempMovieDetail} required className="form-control" />
                             </div>
 
-                            
-                           
 
-                           
 
-                           
-                          
-                           
-                            
+
+
+
+
+
+
+
                             <br />
                             <div className="input-group justify-content-center">
                                 <div className="m-1">
